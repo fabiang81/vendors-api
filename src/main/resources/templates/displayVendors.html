@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Vendors</title>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+  <h2>Vendors</h2>          
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="vendor: ${vendors}">
+        <td th:text="${vendor.id}"></td>
+        <td th:text="${vendor.code}"></td>
+        <td th:text="${vendor.name}"></td>
+        <td th:text="${vendor.type}"></td>
+        <td th:text="${vendor.email}"></td>
+        <td th:text="${vendor.phone}"></td>
+        <td th:text="${vendor.address}"></td>
+        <td><a th:href="@{/deleteVendor(id=${vendor.id})}" class="btn btn-danger" role="button" align="center">Delete</a></td>
+        <td><a th:href="@{/updateVendor(id=${vendor.id})}" class="btn btn-primary" role="button" align="center">Edit</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="showCreate" class="btn btn-info" role="button" align="center">Add vendor</a>
+</div>
+<div class="alert alert-success" th:if="${msg != null}" >
+  	<strong th:text="${msg}"></strong>
+</div>
+</body>
+</html>
