@@ -1,6 +1,7 @@
 package com.fabiang.vendor.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import java.util.List;
 import com.fabiang.vendor.entities.Vendor;
 import com.fabiang.vendor.repos.VendorRepository;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class VendorRestController {
 	
